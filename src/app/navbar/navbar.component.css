@@ -6,3 +6,38 @@
 .navbar-toggle {
   color: #FFF;
 }
+
+.navbar-menu {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 210px;
+  z-index: 9998;
+  background-color: #3A3633;
+  list-style: none;
+}
+
+.navbar-usuario {
+  padding: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #525151;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #FFF;
+}
+
+.navbar-menuitem {
+  padding: 15px;
+}
+
+.navbar-menuitem a {
+  color: #C0BBB7;
+}
+
+.navbar-menuitem a:hover {
+  color: #FFF;
+  font-weight: bold;
+}
