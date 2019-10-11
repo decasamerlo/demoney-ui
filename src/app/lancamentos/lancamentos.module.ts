@@ -29,7 +29,6 @@ import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-ca
     CalendarModule,
     SelectButtonModule,
     DropdownModule,
-
     CurrencyMaskModule
   ],
   declarations: [
