@@ -16,7 +16,31 @@
 
   <div class="ui-g">
     <div class="ui-g-12">
-      <app-pessoas-grid [pessoas]="pessoas"></app-pessoas-grid>
+      <p-table [value]="pessoas" [responsive]="true" [paginator]="true" [rows]="filtro.itensPorPagina" [lazy]="true"
+        [totalRecords]="totalRegistros" (onLazyLoad)="aoMudarPagina($event)">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nome</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>Status</th>
+            <th class="col-acoes"></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-pessoa>
+          <tr>
+            <td><span class="ui-column-title">Nome</span>{{pessoa.nome}}</td>
+            <td><span class="ui-column-title">Cidade</span>{{pessoa.endereco?.cidade}}</td>
+            <td><span class="ui-column-title">Estado</span>{{pessoa.endereco?.estado}}</td>
+            <td><span class="ui-column-title">Status</span>{{pessoa.ativo ? 'Ativo' : 'Inativo'}}</td>
+            <td class="col-acoes">
+              <span class="ui-column-title"></span>
+              <p-button icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></p-button>
+              <p-button icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></p-button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
     </div>
 
     <div class="ui-g-12">
