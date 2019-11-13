@@ -32,11 +32,14 @@
             <td><span class="ui-column-title">Nome</span>{{pessoa.nome}}</td>
             <td><span class="ui-column-title">Cidade</span>{{pessoa.endereco?.cidade}}</td>
             <td><span class="ui-column-title">Estado</span>{{pessoa.endereco?.estado}}</td>
-            <td><span class="ui-column-title">Status</span>{{pessoa.ativo ? 'Ativo' : 'Inativo'}}</td>
+            <td><span class="ui-column-title">Status</span><a href="javascript:;"
+                pToooltip="pessoa.ativo ? 'Desativar' : 'Ativar'" tooltipPosition="top"
+                (click)="alternarStatus(pessoa)">{{pessoa.ativo ? 'Ativo' : 'Inativo'}}</a></td>
             <td class="col-acoes">
               <span class="ui-column-title"></span>
               <p-button icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></p-button>
-              <p-button icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top" (click)="confirmarExclusao(pessoa)"></p-button>
+              <p-button icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top" (click)="confirmarExclusao(pessoa)">
+              </p-button>
             </td>
           </tr>
         </ng-template>
