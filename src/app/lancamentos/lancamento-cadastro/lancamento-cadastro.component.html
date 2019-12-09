@@ -37,12 +37,12 @@
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Categoria</label>
-        <p-dropdown [options]="categorias" placeholder="Selecione" [(ngModel)]="lancamento.categoria" required name="categoria"></p-dropdown>
+        <p-dropdown [options]="categorias" placeholder="Selecione" [(ngModel)]="lancamento.categoria.codigo" required name="categoria"></p-dropdown>
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Pessoa</label>
-        <p-dropdown [options]="pessoas" placeholder="Selecione" [filter]="true" [(ngModel)]="lancamento.pessoa" required name="pessoa">
+        <p-dropdown [options]="pessoas" placeholder="Selecione" [filter]="true" [(ngModel)]="lancamento.pessoa.codigo" required name="pessoa">
         </p-dropdown>
       </div>
 
