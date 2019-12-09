@@ -16,8 +16,9 @@ export class ErrorHandlerService {
       msg = errorResponse;
     } else if (errorResponse.status === 400) {
       msg = errorResponse.error[0].mensagemUsuario;
+      console.log(errorResponse.error[0].mensagemDesenvolvedor);
     } else {
-      msg = 'Erro ao processar serviço remoto.Tente novamente.';
+      msg = 'Erro ao processar serviço remoto. Tente novamente.';
       console.log('Ocorreu um erro', errorResponse);
     }
     this.toasty.error(msg);
