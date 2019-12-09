@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import { Pessoa } from '../core/model';
+
 export class PessoaFiltro {
   nome: string;
   pagina = 0;
@@ -61,5 +63,13 @@ export class PessoaService {
     return this.http.put(`${this.pessoasUrl}/${codigo}/ativo`, ativo, { headers })
       .toPromise()
       .then(() => null);
+  }
+
+  adicionar(pessoa: Pessoa): Promise<Pessoa> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==')
+      .append('Content-Type', 'application/json');
+
+    return this.http.post<Pessoa>(this.pessoasUrl, pessoa, {headers}).toPromise();
   }
 }
