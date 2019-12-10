@@ -56,7 +56,7 @@
 
       <div class="ui-g-12">
         <p-button label="Salvar" [disabled]="f.invalid"></p-button>
-        <p-button label="Novo" class="ui-button-info"></p-button>
+        <p-button type="button" label="Novo" class="ui-button-info" (click)="novo(f)"></p-button>
         <a routerLink="/lancamentos">Voltar para a pesquisa</a>
       </div>
     </div>
