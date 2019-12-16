@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Pessoa } from '../core/model';
+import { Pessoa, Endereco } from '../core/model';
 
 export class PessoaFiltro {
   nome: string;
@@ -71,5 +71,39 @@ export class PessoaService {
       .append('Content-Type', 'application/json');
 
     return this.http.post<Pessoa>(this.pessoasUrl, pessoa, {headers}).toPromise();
+  }
+
+  atualizar(pessoa: Pessoa): Promise<Pessoa> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==')
+      .append('Content-Type', 'application/json');
+
+    return this.http.put<Pessoa>(`${this.pessoasUrl}/${pessoa.codigo}`, pessoa, {headers})
+      .toPromise()
+      .then(response => {
+        const pessoaAlterada = response as Pessoa;
+        this.adicionarEndereco([pessoaAlterada]);
+        return pessoaAlterada;
+      });
+  }
+
+  buscarPorCodigo(codigo: number): Promise<Pessoa> {
+    const headers = new HttpHeaders().append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+
+    return this.http.get(`${this.pessoasUrl}/${codigo}`, {headers})
+      .toPromise()
+      .then(response => {
+        const pessoa = response as Pessoa;
+        this.adicionarEndereco([pessoa]);
+        return pessoa;
+      });
+  }
+
+  adicionarEndereco(pessoas: Pessoa[]) {
+    pessoas.forEach(pessoa => {
+      if (!pessoa.endereco) {
+        pessoa.endereco = new Endereco();
+      }
+    });
   }
 }
