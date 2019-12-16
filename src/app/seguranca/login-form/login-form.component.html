@@ -14,7 +14,7 @@
         <input pInputText type="password" name="senha" placeholder="Senha" ngModel required #senha>
       </div>
       <div class="ui-g-12">
-        <p-button type="submit" label="Login" [disabled]="!f.valid" (click)="login(usuario.value, senha.value)" class="solo">
+        <p-button type="submit" label="Login" [disabled]="!f.valid" (click)="login(usuario.value, senha.value); senha.value = '';" class="solo">
         </p-button>
       </div>
     </form>
