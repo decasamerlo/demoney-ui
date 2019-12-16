@@ -1,3 +1,4 @@
+import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,15 +6,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  constructor(private auth: AuthService) { }
 
   login(usuario: string, senha: string) {
-
+    this.auth.login(usuario, senha);
   }
 
 }
