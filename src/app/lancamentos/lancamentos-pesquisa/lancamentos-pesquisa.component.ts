@@ -27,7 +27,7 @@ export class LancamentosPesquisaComponent implements OnInit {
     private toasty: ToastyService,
     private confirmation: ConfirmationService,
     private title: Title,
-    private auth: AuthService
+    public auth: AuthService
   ) { }
 
   ngOnInit() {

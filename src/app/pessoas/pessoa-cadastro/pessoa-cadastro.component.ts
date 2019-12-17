@@ -1,6 +1,6 @@
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 import { ToastyService } from 'ng2-toasty';
@@ -41,7 +41,7 @@ export class PessoaCadastroComponent implements OnInit {
     return this.pessoa.codigo;
   }
 
-  salvar(form: FormControl) {
+  salvar(form: NgForm) {
     if (this.editando) {
       this.atualizarPessoa(form);
     } else {
@@ -49,7 +49,7 @@ export class PessoaCadastroComponent implements OnInit {
     }
   }
 
-  adicionarPessoa(form: FormControl) {
+  adicionarPessoa(form: NgForm) {
     this.pessoaService.adicionar(this.pessoa)
       .then(() => {
         this.toasty.success('Pessoa adicionada com sucesso!');
@@ -60,7 +60,7 @@ export class PessoaCadastroComponent implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  atualizarPessoa(form: FormControl) {
+  atualizarPessoa(form: NgForm) {
     this.pessoaService.atualizar(this.pessoa)
       .then(pessoa => {
         this.pessoa = pessoa;
@@ -80,7 +80,7 @@ export class PessoaCadastroComponent implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  nova(form: FormControl) {
+  nova(form: NgForm) {
     form.reset();
 
     setTimeout(function() {
