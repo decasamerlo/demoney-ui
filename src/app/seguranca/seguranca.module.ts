@@ -11,6 +11,7 @@ import { SegurancaRoutingModule } from './seguranca-routing.module';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { MoneyHttpInterceptor } from './money-http-interceptor';
 import { AuthGuard } from './auth.guard';
+import { environment } from './../../environments/environment';
 
 export function tokenGetter(): string {
   return localStorage.getItem('token');
@@ -26,8 +27,8 @@ export function tokenGetter(): string {
     JwtModule.forRoot({
       config: {
         tokenGetter,
-        whitelistedDomains: ['localhost:8080'],
-        blacklistedRoutes: ['http://localhost:8080/oauth/token']
+        whitelistedDomains: [environment.whitelistedDomains],
+        blacklistedRoutes: [environment.blacklistedRoutes]
       }
     }),
 
