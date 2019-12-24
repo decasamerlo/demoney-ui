@@ -25,7 +25,7 @@
       <div class="ui-g-12 ui-md-9 ui-fluid">
         <label>Descrição</label>
         <input pInputText name="descricao" formControlName="descricao" type="text">
-        <app-message [control]="formulario.get('descricao')" error="required" text="Informe a descrição"></app-message>
+        <app-message [control]="formulario.get('descricao')" error="obrigatoriedade" text="Informe a descrição"></app-message>
         <app-message [control]="formulario.get('descricao')" error="minlength"
           text="Mínimo de {{ formulario.get('descricao').errors?.minlength?.requiredLength }} caracteres"></app-message>
       </div>
