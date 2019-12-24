@@ -26,7 +26,7 @@
     "ng2-currency-mask": "^5.3.1",
     "ng2-toasty": "^4.0.3",
     "primeicons": "^2.0.0",
-    "primeng": "^8.1.1",
+    "primeng": "^9.0.0-rc.2",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.5.3",
     "tslib": "^1.10.0",
@@ -51,8 +51,7 @@
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "engines": {
     "node": "10.16.0",
     "npm": "6.9.0"
